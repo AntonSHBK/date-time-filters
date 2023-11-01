@@ -2,14 +2,28 @@
 
 {% block date_time_filter %}
 
-<h3>{% trans title %}</h3>
-<div>
-    <form method="get">
-        {{ spec.form.as_ul }}
-        <div class="controls">
-            <input type="submit" class="button" value="{% trans "Search" %}">
-            <input type="reset" class="button" value="{% trans "Reset" %}">
+<h3 class="date_filter_title">{% trans title %}</h3>
+
+<div class="filter_content">
+    <form action="." class="date_form">
+
+        <div class="date_form_fields">
+            {% for field in spec.form %}
+            <div class="date_form_one_field">
+                <div class="date_field_title">
+                    {{ field.label }}
+                </div>
+                {{ field }}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="date_form_controls">
+            <input type="submit" class="button date_filter_button" value={% trans "Search" %}>
         </div>
     </form>
 </div>
+
 {% endblock date_time_filter %}
+
+

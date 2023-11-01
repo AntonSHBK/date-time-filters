@@ -9,12 +9,12 @@ from django.contrib.admin import FieldListFilter
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
-DATA_RANGE_FILTER_TEMPLATE = '/date_time_filters/date_filter.htm'
+DATA_RANGE_FILTER_TEMPLATE = '/date_time_filters/date_filter.html'
 
 
 class DateRangeFilter(FieldListFilter):
     """
-        Фильтр по дате (DateTimeField)
+        Фильтр по дате (DateTimeField)      
     """
     
     def __init__(self, field, request, params, model, model_admin, field_path,
@@ -44,7 +44,7 @@ class DateRangeFilter(FieldListFilter):
     
     def choices(self, changelist: Any):
         """
-        RUS: Кодировка значенией в UTF-8
+        RUS: Кодировка значений в UTF-8
         """
         yield {
             "fild_name": str(self.title),
@@ -59,7 +59,7 @@ class DateRangeFilter(FieldListFilter):
                 (
                     self.from_date,
                     forms.DateField(
-                        label=_("С"),
+                        label=_("From"),
                         widget=forms.DateInput(
                             attrs={
                                 "type": "date",
@@ -67,13 +67,14 @@ class DateRangeFilter(FieldListFilter):
                             ),
                         localize=True,
                         required=False,
-                        initial=self.default_from_date
+                        initial=self.default_from_date,
+                        help_text=_("From date")
                     ),
                 ),
                 (
                     self.to_date,
                     forms.DateField(
-                        label=_("По"),
+                        label=_("To"),
                         widget=forms.DateInput(
                             attrs={
                                 "type": "date",
@@ -81,7 +82,8 @@ class DateRangeFilter(FieldListFilter):
                             ),
                         localize=True,
                         required=False,
-                        initial=self.default_to_date
+                        initial=self.default_to_date,
+                        help_text=_("To date")
                     ),
                 ),
             )

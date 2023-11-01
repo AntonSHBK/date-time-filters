@@ -1,3 +1,45 @@
+<style>
+    .date_form_one_field{
+        padding: 5px 15px;
+        display: flex;
+        color: #666;
+    }    
+    .date_field_title {
+        width: 35px;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        color: #999;
+        text-decoration: none;
+        font-size: 13px;
+    }     
+    .date_form_controls {
+        padding: 0px 10px;
+        display: block;
+        margin-bottom: 10px;
+    }    
+    .date_filter_button.button {    
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding: 6px;
+        margin: 0px;
+        font-size: 13px;
+        background: #79aec8;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+    }    
+    input[type='date']{
+        width: 100%;
+        color: #666;
+        opacity: 0.6;
+    }    
+    .date_form_controls input{
+        margin-top: 0px !important;
+    }
+</style>
+
 {% load i18n %}
 
 {% block date_time_filter %}
